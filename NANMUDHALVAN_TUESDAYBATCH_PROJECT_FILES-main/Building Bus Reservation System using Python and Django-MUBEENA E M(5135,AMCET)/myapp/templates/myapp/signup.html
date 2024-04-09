@@ -1,0 +1,40 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7 col-sm-10 col-xs-12">
+            <div class="card rounded-0" style="background-color: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+                <div class="card-header bg-primary text-white" style="background: linear-gradient(to right, #f4943b, #e91639);">
+                    <div class="card-title text-center h3 mb-0">Registration</div>
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'signup' %}" method="post" id="registration-form">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-dark">Email:</label>
+                            <input name='email' class="form-control" type="email" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mobilenumber" class="form-label text-dark">Mobile No:</label>
+                            <input name='mobilenumber' class="form-control" type="text" id="mobilenumber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label text-dark">Username:</label>
+                            <input name='name' id="name" class="form-control" type="text" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label text-dark">Password:</label>
+                            <input name='password' id="password" class="form-control" type="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label text-dark">Confirm Password:</label>
+                            <input name='confirm_password' id="confirm_password" class="form-control" type="password" required>
+                        </div>
+                        <button class="btn btn-danger rounded-0 w-100" form="registration-form" style="background: linear-gradient(to right, #f4943b, #e91639);">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
